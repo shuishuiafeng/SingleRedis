@@ -1,0 +1,43 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      cookie:
+        name: people
+
+
+spring:
+  application:
+    name: people-pro
+  profiles:
+    active: dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${jdbc.pool.url}
+    username: ${jdbc.pool.username}
+    password: ${jdbc.pool.password}
+  main:
+    allow-bean-definition-overriding: true
+  rabbitmq:
+    host: 192.168.132.129
+    port: 5672
+    username: feng
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    password: 12345
+    port: 6379
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+    timeout: 1000ms
+
+logging:
+  level:
+    root: info
+    com.xiaofeng.pro.dao: debug
+
